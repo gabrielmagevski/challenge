@@ -26,6 +26,22 @@ const Minicart = () => {
             <div className='minicart--container'>
               <div className='minicart--header'>
                 <h2 className='minicart--header--title'>Carrinho</h2>
+                 <svg
+                width="19"
+                height="19"
+                viewBox="0 0 19 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0.5 18.1018L17.5547 0.249885" stroke="black" />
+                <line
+                  y1="-0.5"
+                  x2="25.2899"
+                  y2="-0.5"
+                  transform="matrix(0.711746 0.702437 -0.874311 0.485367 0 0.485352)"
+                  stroke="black"
+                />
+              </svg>
               </div>
 
               <div className='minicart--content'>

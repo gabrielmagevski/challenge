@@ -101,10 +101,6 @@
               height: 100%;
               background: #fff;
   
-              &:first-child {
-                border-right: 1px solid var(--gray-color);
-              }
-  
               .title--button--trigger-filter--mobile {
                 font-size: 1.5rem;
                 line-height: 100%;
@@ -117,6 +113,10 @@
 
           .orderby--selected-wrapper {
             width: 100%;
+            
+            .button--trigger-filter--mobile {
+              border-left: 0;
+            }
           }
 
           @media (max-width: 1024px) {
@@ -158,7 +158,7 @@
     width: 100%;
 
     &-mobile {
-      position: absolute;
+      position: fixed;
       background: #fff;
       height: 100%;
       width: 100%;
@@ -167,8 +167,8 @@
       bottom: 0;
       z-index: 10;
       @include mixins.slide-in;
-
-
+      display: flex;
+      flex-direction: column;
 
       .header--filter-mobile {
         display: flex;
@@ -612,4 +612,58 @@
   flex-wrap: wrap;
   max-width: 153px;
   gap: 8px;
+}
+
+.filter-mobile {
+  margin-top: auto;
+  padding: 0 16px;
+}
+
+.filter-mobile-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 23px;
+  margin-top: auto;
+  margin-bottom: 20px;
+  padding-top: 20px
+}
+
+.button--apply-filter {
+  background-color: var(--orange-color);
+  color: #FFF;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+
+  padding: 8px;
+  max-width: 160px;
+  width: 100%;
+  min-height: 35px;
+  height: 100%;
+  max-height: 35px;
+
+  border: none;
+  outline: none;
+
+}
+
+.header--filter-content {
+  overflow-y: auto;
+}
+
+.button--clear-filter {
+  @extend .button--apply-filter;
+
+  background-color: #FFF;
+  color: var(--gray-color);
+  border: 1px solid var(--gray-color);
+}
+
+@media (max-width: 355px) {
+  .filter-mobile-buttons {
+    padding: 0 15px;
+  }
 }

@@ -7,9 +7,19 @@ interface FilterMobile {
 }
 
 const FilterMobile = ({ children, textFilter }: FilterMobile) => {
-  const { handleOpenMobile, openMobileFilter } = useCategoryContext();
+  const { handleOpenMobile, openMobileFilter, applyFilters, clearFilters } = useCategoryContext();
 
   const isOpen = openMobileFilter === textFilter;
+
+  const handleApply = () => {
+    applyFilters();
+    handleOpenMobile(textFilter);
+  };
+
+  const handleClear = () => {
+    clearFilters();
+    handleOpenMobile(textFilter);
+  };
 
   return (
     <div className="container-modal--filter-mobile">
@@ -45,7 +55,11 @@ const FilterMobile = ({ children, textFilter }: FilterMobile) => {
               </svg>
             </div>
           </div>
-          <div>{children}</div>
+          <div className='header--filter-content'>{children}</div>
+          <div className="filter-mobile-buttons">
+            <button className="button--apply-filter" onClick={handleApply}>Aplicar</button>
+            <button className="button--clear-filter" onClick={handleClear}>Limpar</button>
+          </div>
         </div>
       )}
     </div>

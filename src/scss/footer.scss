@@ -14,11 +14,16 @@
 
     &--title {
       font-weight: 400;
-      font-size: 14px;
+      font-size: 0.875rem;
       line-height: 100%;
       letter-spacing: 5%;
       text-transform: uppercase;
       color: #FFF;
+      
+      @media (max-width: 329px) {
+        font-size: 0.75rem;
+      }
     }
   }
 }
+

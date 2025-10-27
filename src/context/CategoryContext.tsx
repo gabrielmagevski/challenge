@@ -17,6 +17,9 @@ type useCategoryContextProps = {
   isChecked: {
     [key: string]: boolean;
   }
+  applyFilters: () => void;
+  clearFilters: () => void;
+  setIsChecked: React.Dispatch<React.SetStateAction<{ [key: string]: boolean}>>;
   columnFilters: {type: string, items: string[]}[]
   handleAddToCart: (sku: Product) => void;
   handleRemoveToCart: (sku: Product) => void;
@@ -36,10 +39,10 @@ const CategoryContext = createContext<null | useCategoryContextProps>(null);
 
 export const CategoryProvider = ({ children }: ProviderProps) => {
   const { listProducts } = useProduct()
-  const { handleCheckboxChange, isChecked } = useCheckedInputFilter()
+  const { handleCheckboxChange, isChecked, appliedFilters, applyFilters, clearFilters, setIsChecked } = useCheckedInputFilter()
   const { handleOpenMobile, setOpenMobileFilter, openMobileFilter } = useFilterMobile();
   const [orderBy, setOrderBy] = useState<string>("");
-  const { searchNewProduct, columnFilters, ordeByFilter } = useFilter(listProducts, isChecked, orderBy)
+  const { searchNewProduct, columnFilters, ordeByFilter } = useFilter(listProducts, appliedFilters, orderBy)
   const { handleAddToCart, handleRemoveToCart, addToCart, setAddToCart, openMinicart, setOpenMinicart, handleOpenMinicart} = useAddToCart();
 
 
@@ -47,6 +50,9 @@ export const CategoryProvider = ({ children }: ProviderProps) => {
     listProducts,
     handleCheckboxChange,
     isChecked, 
+    applyFilters,
+    clearFilters,
+    setIsChecked,
     searchNewProduct,
     columnFilters,
     ordeByFilter,
@@ -66,6 +72,9 @@ export const CategoryProvider = ({ children }: ProviderProps) => {
     listProducts,
     handleCheckboxChange,
     isChecked, 
+    applyFilters,
+    clearFilters,
+    setIsChecked,
     searchNewProduct,
     columnFilters,
     handleAddToCart,
