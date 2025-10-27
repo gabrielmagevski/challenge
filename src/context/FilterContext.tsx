@@ -26,7 +26,6 @@ export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
   const [orderBy, setOrderBy] = useState("");
   const { searchNewProduct, columnFilters, ordeByFilter } = useFilter(
     listProducts,
-    // usar isMobile para decidir qual estado passar
     typeof window !== "undefined" && window.innerWidth <= 768 ? appliedFilters : isChecked,
     orderBy
   );
