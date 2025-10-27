@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { CategoryProvider } from "./context/CategoryContext";
+import { CategoryProvider } from "./context/CategoryProvider";
 import Header from "./components/Atoms/Header";
 import Footer from "./components/Atoms/Footer/Footer";
 import Category from "./components/Templates/Category";

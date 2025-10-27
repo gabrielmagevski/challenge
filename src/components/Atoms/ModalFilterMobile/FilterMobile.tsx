@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import { useCategoryContext } from '../../../context/CategoryContext';
+import { useFilterContext } from '../../../context/FilterContext';
+import { useMobileContext } from '../../../context/MobileContext';
 
 interface FilterMobile {
   children: ReactNode;
@@ -7,7 +8,8 @@ interface FilterMobile {
 }
 
 const FilterMobile = ({ children, textFilter }: FilterMobile) => {
-  const { handleOpenMobile, openMobileFilter, applyFilters, clearFilters } = useCategoryContext();
+  const { applyFilters, clearFilters } = useFilterContext();
+  const {handleOpenMobile, openMobileFilter} = useMobileContext()
 
   const isOpen = openMobileFilter === textFilter;
 

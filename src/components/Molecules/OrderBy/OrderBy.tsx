@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useCategoryContext } from "../../../context/CategoryContext";
 import { useIsMobile } from "../../../hooks/useIsMobile";
-import FilterMobile from "../../Atoms/ModalFilterMobile/FilterMobile";
+import TriggerFilterMobile from "../../Atoms/ModalFilterMobile/FilterMobile";
 import OrderByItem from "./OrderByItem";
+import { useFilterContext } from "../../../context/FilterContext";
+import { useMobileContext } from "../../../context/MobileContext";
 
 const OrderBySelect = () => {
-  const { ordeByFilter, orderBy, setOrderBy, handleOpenMobile } = useCategoryContext();
   const [isOpen, setIsOpen] = useState(false);
+  const { ordeByFilter, orderBy, setOrderBy } = useFilterContext();
+  const { handleOpenMobile } = useMobileContext()
   const { isMobile } = useIsMobile();
 
   const handleSelect = (value: string) => {
@@ -40,9 +42,9 @@ const OrderBySelect = () => {
         <OrderByItem ordeByFilter={ordeByFilter} handleSelect={handleSelect} />
       )}
       {isMobile && (
-        <FilterMobile textFilter={"Ordenar"}>
+        <TriggerFilterMobile textFilter={"Ordenar"}>
           <OrderByItem ordeByFilter={ordeByFilter} handleSelect={handleSelect} />
-        </FilterMobile>
+        </TriggerFilterMobile>
       )}
     </div>
   );

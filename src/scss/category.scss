@@ -93,9 +93,11 @@
           }
           .container-modal--filter-mobile {
             width: 100%;
+            border: 1px solid var(--gray-color);
+            max-width: 172px;
+
             .button--trigger-filter--mobile {
-              border: 1px solid var(--gray-color);
-              max-width: 172px;
+              border: 0;
               width: 100%;
               min-height: 49px;
               height: 100%;
@@ -113,6 +115,8 @@
 
           .orderby--selected-wrapper {
             width: 100%;
+            max-width: 172px;
+
             
             .button--trigger-filter--mobile {
               border-left: 0;
@@ -124,6 +128,7 @@
             align-items: center;
             margin-top: 14px;
             width: 100%;
+            justify-content: center;
           }
         }
       }
@@ -141,6 +146,10 @@
     display: flex;
     margin: 65px 0 0 0;
     max-width: 976px;
+
+    @media (max-width: 1024px) {
+      justify-content: center;
+    }
   }
 
   &--shelf {

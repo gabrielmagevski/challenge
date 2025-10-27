@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
-import { useCategoryContext } from '../../../context/CategoryContext';
 import FilterItems from './FilterItems';
+import { useFilterContext } from '../../../context/FilterContext';
 
 const Filters = () => {
-  const { handleCheckboxChange, isChecked, columnFilters  } = useCategoryContext()
+  const { handleCheckboxChange, isChecked, columnFilters  } = useFilterContext()
 
   return (
     <div className='container--filter'>

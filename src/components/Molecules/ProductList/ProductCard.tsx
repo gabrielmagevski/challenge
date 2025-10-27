@@ -1,14 +1,14 @@
 import React from 'react';
 import { formatCurrency } from '../../../utils/formatCurrency';
 import { Product } from '../../../ts/Product';
-import { useCategoryContext } from '../../../context/CategoryContext';
+import { useCartContext } from '../../../context/CartContext';
 
 interface ProductCardProps {
   sku: Product
 }
 
 const ProductCard = ({ sku }: ProductCardProps) => {
-  const { handleAddToCart } = useCategoryContext()
+  const { handleAddToCart } = useCartContext()
   
   return (
     <article className="shelf-card">

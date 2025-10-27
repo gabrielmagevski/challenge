@@ -1,5 +1,5 @@
 import React from "react";
-import FilterMobile from "../../Atoms/ModalFilterMobile/FilterMobile";
+import TriggerFilterMobile from "../../Atoms/ModalFilterMobile/FilterMobile";
 import ListProducts from "../../Molecules/ProductList/ProductList";
 import OrderBy from "../../Molecules/OrderBy/OrderBy";
 import Filters from "../../Molecules/Filter/Filters";
@@ -21,9 +21,9 @@ const Category = () => {
           <div className="container--top-category--departament-orderby">
 
             {isMobile && (
-              <FilterMobile textFilter={"Filtrar"}>
+              <TriggerFilterMobile textFilter={"Filtrar"}>
                 <Filters />
-              </FilterMobile>
+              </TriggerFilterMobile>
             )}
             
             <OrderBy />

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
-import { useCategoryContext } from '../../../context/CategoryContext';
 import { useIsMobile } from '../../../hooks/useIsMobile';
+import { useFilterContext } from '../../../context/FilterContext';
 
 const PRODUCTS_PER_PAGE_DESKTOP = 9;
 const PRODUCTS_PER_PAGE_MOBILE = 4;
 
 const ProductList = () => {
-  const { searchNewProduct } = useCategoryContext();
+  const { searchNewProduct } = useFilterContext();
   const [visibleCount, setVisibleCount] = useState(PRODUCTS_PER_PAGE_DESKTOP);
   const { isMobile } = useIsMobile()
 

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useCategoryContext } from '../../../context/CategoryContext';
+import React from 'react';
 import { Product } from '../../../ts/Product';
 import MinicartEmpty from './MinicartEmpty';
 import { formatCurrency } from '../../../utils/formatCurrency';
 import MinicartItem from './MinicartItem';
+import { useCartContext } from '../../../context/CartContext';
 
 const Minicart = () => {
-  const { addToCart, handleOpenMinicart, openMinicart } = useCategoryContext()
+  const { addToCart, handleOpenMinicart, openMinicart } = useCartContext()
 
   const hasItensOnMinicart = addToCart.length > 0
   const itensAvailables = addToCart.length
