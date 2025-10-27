@@ -1,0 +1,32 @@
+@use './minicart';
+
+header {
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #C7C7C7;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #FFFF;
+  z-index: 5;
+}
+
+.header-navbar {
+  max-width: 1176px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-navbar .logo {
+  padding: 22px 0 17px 0;
+}
+
+@media (max-width: 1227px) {
+  .header-navbar {
+    padding: 0 15px;
+  }
+}

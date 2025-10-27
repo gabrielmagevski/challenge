@@ -1,0 +1,14 @@
+@mixin slide-in($distance: 50px, $duration: 0.4s, $timing: ease-out) {
+  @keyframes slideIn {
+    from {
+      right: -#{$distance};
+      opacity: 0;
+    }
+    to {
+      right: 0;
+      opacity: 1;
+    }
+  }
+
+  animation: slideIn $duration $timing forwards;
+}

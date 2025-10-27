@@ -1,1 +1,20 @@
 @use "reset";
+@use "footer.scss";
+@use "header.scss";
+@use "category.scss";
+@use "mixins";
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  position: relative;
+}
+
+:root {
+  --primary-color: #000000;
+  --secondary-color: #00000080;
+  --gray-color: #666666;
+  --orange-color: #FB953E;
+  --gray-dark: #333333;
+}
