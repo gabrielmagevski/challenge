@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useIsMobile } from "../../../hooks/useIsMobile";
 import TriggerFilterMobile from "../../Atoms/ModalFilterMobile/FilterMobile";
 import OrderByItem from "./OrderByItem";
-import { useFilterContext } from "../../../context/FilterContext";
 import { useMobileContext } from "../../../context/MobileContext";
+import { useFilterWithProductsContext } from "../../../context/FilterWithProductsContext";
 
 const OrderBySelect = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { ordeByFilter, orderBy, setOrderBy } = useFilterContext();
+  const { ordeByFilter, orderBy, setOrderBy } = useFilterWithProductsContext();
   const { handleOpenMobile } = useMobileContext()
   const { isMobile } = useIsMobile();
 
-  const handleSelect = (value: string) => {
+  
+  const handleSelect = useCallback((value: string) => {
     setOrderBy(value);
     setIsOpen(false);
 
     isMobile && handleOpenMobile("orderBy")
-  };
+  }, [handleOpenMobile, isMobile]);
 
   return (
     <div className="orderby--selected-wrapper">

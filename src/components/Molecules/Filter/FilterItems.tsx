@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useIsMobile } from "../../../hooks/useIsMobile";
 import Accordion from "../../Atoms/Accordion/Accordion";
-import InputCustom from "../../Atoms/InputCustom/InputCustom";
 import ItemFilter from "./ItemFilter";
 
 interface FilterItemsProps {
@@ -15,7 +14,7 @@ interface FilterItemsProps {
   handleCheckboxChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FilterItems = ({
+const FilterItems = React.memo(({
   itemsFilter,
   isChecked,
   handleCheckboxChange,
@@ -90,6 +89,7 @@ const FilterItems = ({
       </div>
     </div>
   );
-};
+});
 
+FilterItems.displayName = "FilterItems"
 export default FilterItems;

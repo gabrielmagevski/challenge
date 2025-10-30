@@ -1,10 +1,11 @@
-import React, { memo } from 'react'
+import React from 'react'
 import FilterItems from './FilterItems';
 import { useFilterContext } from '../../../context/FilterContext';
+import { useFilterWithProductsContext } from '../../../context/FilterWithProductsContext';
 
 const Filters = () => {
-  const { handleCheckboxChange, isChecked, columnFilters  } = useFilterContext()
-
+  const { handleCheckboxChange, isChecked  } = useFilterContext()
+  const {columnFilters} = useFilterWithProductsContext()
   return (
     <div className='container--filter'>
       <FilterItems
@@ -27,5 +28,6 @@ const Filters = () => {
     </div>
   );
 }
+Filters.displayName = "Filters"
 
-export default memo(Filters);
+export default Filters;

@@ -7,7 +7,7 @@ interface ProductCardProps {
   sku: Product
 }
 
-const ProductCard = ({ sku }: ProductCardProps) => {
+const ProductCard = React.memo(({ sku }: ProductCardProps) => {
   const { handleAddToCart } = useCartContext()
   
   return (
@@ -40,6 +40,6 @@ const ProductCard = ({ sku }: ProductCardProps) => {
       </div>
     </article>
   )
-}
+})
 
 export default ProductCard;

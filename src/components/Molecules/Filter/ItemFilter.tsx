@@ -10,7 +10,7 @@ interface ItemFilterProps {
   handleCheckboxChange:(e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ItemFilter = ({ items, viewMore, type, isChecked, handleCheckboxChange }: ItemFilterProps) => {
+const ItemFilter = React.memo(({ items, viewMore, type, isChecked, handleCheckboxChange }: ItemFilterProps) => {
   const { isMobile } = useIsMobile()
 
   return (
@@ -30,13 +30,15 @@ const ItemFilter = ({ items, viewMore, type, isChecked, handleCheckboxChange }: 
               value={item}
               name={item}
               checked={isChecked[item] ?? false}
-              onChange={(e) => handleCheckboxChange(e)}
+              onChange={handleCheckboxChange}
             />
             <span className="item-span">{item}</span>
           </div>
         ))}
     </React.Fragment>
   )
-}
+})
+
+ItemFilter.displayName = "ItemFilter"
 
 export default ItemFilter;

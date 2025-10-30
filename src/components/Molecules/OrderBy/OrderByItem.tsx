@@ -1,9 +1,11 @@
+import React from "react";
+
 interface OrderByItem {
   handleSelect: (value: string) => void;
   ordeByFilter: {type: string, items: (string | number)[]}[]
 }
 
-const OrderByItem = ({ handleSelect, ordeByFilter }: OrderByItem) => {
+const OrderByItem = React.memo(({ handleSelect, ordeByFilter }: OrderByItem) => {
   return (
     <ul className="orderby--select--options">
       {ordeByFilter[0]?.items.map((item) => (
@@ -17,6 +19,6 @@ const OrderByItem = ({ handleSelect, ordeByFilter }: OrderByItem) => {
       ))}
     </ul>
   );
-};
+});
 
 export default OrderByItem;

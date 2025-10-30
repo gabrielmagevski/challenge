@@ -6,12 +6,12 @@ interface MinicarItemProps {
   sku: Product;
 }
 
-const MinicartItem = ({ sku }: MinicarItemProps) => {
+const MinicartItem = React.memo(({ sku }: MinicarItemProps) => {
   return (
     <React.Fragment>
       <ProductCard sku={sku} />
     </React.Fragment>
   )
-}
+})
 
 export default MinicartItem

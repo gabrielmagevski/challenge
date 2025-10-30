@@ -1,59 +1,41 @@
-import React, { createContext, useContext, useState, useMemo } from "react";
+import React, { createContext, useContext, useMemo } from "react";
 import { useCheckedInputFilter } from "../hooks/useCheckedInputFilter";
-import { useFilter } from "../hooks/useFilter";
-import { Product } from "../ts/Product";
-import { useProductContext } from "./ProductContext";
 
 type FilterContextProps = {
-  searchNewProduct: Product[];
-  columnFilters: { type: string; items: string[] }[];
-  ordeByFilter: { type: string; items: (string | number)[] }[];
   handleCheckboxChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   isChecked: { [key: string]: boolean };
   applyFilters: () => void;
   clearFilters: () => void;
   setIsChecked: React.Dispatch<React.SetStateAction<{ [key: string]: boolean }>>;
-  orderBy: string;
-  setOrderBy: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const FilterContext = createContext<FilterContextProps | null>(null);
 
 export const FilterProvider = ({ children }: { children: React.ReactNode }) => {
-  const { listProducts } = useProductContext();
-  const { handleCheckboxChange, isChecked, appliedFilters, applyFilters, clearFilters, setIsChecked } = useCheckedInputFilter();
-
-  const [orderBy, setOrderBy] = useState("");
-  const { searchNewProduct, columnFilters, ordeByFilter } = useFilter(
-    listProducts,
-    typeof window !== "undefined" && window.innerWidth <= 768 ? appliedFilters : isChecked,
-    orderBy
-  );
+  const { 
+    handleCheckboxChange,
+    isChecked,
+    appliedFilters,
+    applyFilters,
+    clearFilters,
+    setIsChecked
+  } = useCheckedInputFilter();
 
   const value = useMemo(
     () => ({
-      searchNewProduct,
-      columnFilters,
-      ordeByFilter,
       handleCheckboxChange,
       isChecked,
       applyFilters,
       clearFilters,
       setIsChecked,
-      orderBy,
-      setOrderBy,
     }),
     [
-      searchNewProduct,
-      columnFilters,
-      ordeByFilter,
       handleCheckboxChange,
       isChecked,
       appliedFilters,
       applyFilters,
       clearFilters,
       setIsChecked,
-      orderBy,
     ]
   );
 

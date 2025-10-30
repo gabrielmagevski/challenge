@@ -3,16 +3,23 @@ import { ProductProvider } from "./ProductContext";
 import { FilterProvider } from "./FilterContext";
 import { CartProvider } from "./CartContext";
 import { MobileProvider } from "./MobileContext";
+import { FilterWithProductsProvider } from "./FilterWithProductsContext";
 
-export const CategoryProvider = ({ children }: { children: React.ReactNode }) => {
+export const CategoryProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   return (
-    <ProductProvider>
-      <FilterProvider>
-        <CartProvider>
-          <MobileProvider>{children}</MobileProvider>
-        </CartProvider>
-      </FilterProvider>
-    </ProductProvider>
+    <MobileProvider>
+      <CartProvider>
+        <ProductProvider>
+          <FilterProvider>
+            <FilterWithProductsProvider>{children}</FilterWithProductsProvider>
+          </FilterProvider>
+        </ProductProvider>
+      </CartProvider>
+    </MobileProvider>
   );
 };
 
