@@ -8,11 +8,6 @@ type FilterWithProductsCtx = {
   ordeByFilter: { type: string; items: (string | number)[] }[];
   setOrderBy: React.Dispatch<React.SetStateAction<string>>;
   orderBy: string;
-  // handleCheckboxChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  // isChecked: { [key: string]: boolean };
-  // applyFilters: () => void;
-  // clearFilters: () => void;
-  // setIsChecked: React.Dispatch<React.SetStateAction<{ [key: string]: boolean }>>;
 };
 
 const FilterWithProducts = createContext<FilterWithProductsCtx | null>(null);

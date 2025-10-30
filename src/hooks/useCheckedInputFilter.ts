@@ -25,9 +25,9 @@ export const useCheckedInputFilter = () => {
     []
   );
 
-  const applyFilters = useCallback(() => {
+  const applyFilters = () => {
     setAppliedFilters(isChecked);
-  }, [isChecked])
+  }
 
   const clearFilters = useCallback(() => {
     setIsChecked({});

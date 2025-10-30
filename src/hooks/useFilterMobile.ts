@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export const useFilterMobile = () => {
   const [openMobileFilter, setOpenMobileFilter] = useState<string | null>(null);
 
-  const handleOpenMobile = (filterName: string) => {
+  const handleOpenMobile = useCallback((filterName: string) => {
     setOpenMobileFilter(old => (old === filterName ? null : filterName));
-  };
+  }, []);
 
   return {
     handleOpenMobile,
